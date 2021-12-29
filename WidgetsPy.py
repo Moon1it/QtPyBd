@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QMessageBox
- 
+import sys
+
 def dialog():
     mbox = QMessageBox()
  
@@ -10,22 +11,25 @@ def dialog():
     mbox.exec_()
  
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    w = QWidget()
-    w.resize(300,300)
-    w.setWindowTitle('Guru99')
+
+    app = QApplication(sys.argv) #Создаем приложение интерфейса
     
-    label = QLabel(w)
-    label.setText("Behold the Guru, Guru99")
-    label.move(100,130)
-    label.show()
+    w = QWidget() #Создаем главный виджет
+    w.resize(300,300) #Размеры w
+    w.setWindowTitle('New window') #Заголовок w
+    
+    #Текстовое поле на виджете w
+    label = QLabel(w) 
+    label.setText("Main information") #Содержимое текстового поля
+    label.move(50,70) #Расположение текстового поля на виджете
+    label.show() #Вывод поля на экран
  
+    #Кнопка на виджете w
     btn = QPushButton(w)
-    btn.setText('Beheld')
-    btn.move(110,150)
-    btn.show()
-    btn.clicked.connect(dialog)
+    btn.setText('Beheld') #Текст на кнопке
+    btn.move(110,150) #Расположение кнопки
+    btn.show() #Вывод кнопки на экран
+    btn.clicked.connect(dialog) 
  
-    
     w.show()
     sys.exit(app.exec_())
