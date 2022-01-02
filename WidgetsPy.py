@@ -19,10 +19,7 @@ def insert_data():
     st = "insert into people (id, firstname, age) values ({id_p}, {name_p}, {age_p}) ".format()
     cursor.execute(st)                       
     
-    connection.commit()
-
-    cursor.close()
-    connection.close()
+   
 def select_all():
     connection = psycopg2.connect(user="postgres",
                                   password="root",
